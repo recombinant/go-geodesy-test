@@ -12,7 +12,7 @@ import (
 func TestOsGridRef(t *testing.T) {
 	t.Run("0°",
 		func(t *testing.T) {
-			osgb := geodesy.LatLon{geodesy.ParseDMS("52°39′27.2531″N"), geodesy.ParseDMS("1°43′4.5177″E"), geodesy.OSGB36}
+			osgb := geodesy.LatLon{Lat: geodesy.ParseDMS("52°39′27.2531″N"), Lon: geodesy.ParseDMS("1°43′4.5177″E"), Datum: geodesy.OSGB36}
 			gridref := osgb.LatLonToOsGrid()
 			assert.Equal(t, geodesy.ToFixed(gridref.Easting, 3), 651409.903)
 			assert.Equal(t, geodesy.ToFixed(gridref.Northing, 3), 313177.270)
